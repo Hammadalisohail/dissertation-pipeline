@@ -1,0 +1,9 @@
+{
+    "engine": "Flink",
+    "avg_cpu_percent": 49.59,
+    "max_cpu_percent": 75.2,
+    "avg_ram_gb": 11.01,
+    "max_ram_gb": 11.07,
+    "avg_ram_percent": 93.84,
+    "total_readings": 200
+}

@@ -1,0 +1,32 @@
+[
+    {
+        "target_rate": 100,
+        "actual_rate": 88,
+        "time_taken": 114.15,
+        "total_events": 10000
+    },
+    {
+        "target_rate": 500,
+        "actual_rate": 351,
+        "time_taken": 28.46,
+        "total_events": 10000
+    },
+    {
+        "target_rate": 1000,
+        "actual_rate": 539,
+        "time_taken": 18.56,
+        "total_events": 10000
+    },
+    {
+        "target_rate": 5000,
+        "actual_rate": 720,
+        "time_taken": 13.89,
+        "total_events": 10000
+    },
+    {
+        "target_rate": 10000,
+        "actual_rate": 741,
+        "time_taken": 13.49,
+        "total_events": 10000
+    }
+]

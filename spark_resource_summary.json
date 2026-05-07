@@ -1,0 +1,9 @@
+{
+    "engine": "Spark",
+    "avg_cpu_percent": 29.19,
+    "max_cpu_percent": 74.7,
+    "avg_ram_gb": 10.71,
+    "max_ram_gb": 11.14,
+    "avg_ram_percent": 91.32,
+    "total_readings": 200
+}
