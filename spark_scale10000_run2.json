@@ -1,0 +1,9 @@
+{
+    "engine": "Apache Spark Structured Streaming",
+    "total_events": 150038,
+    "total_time_seconds": 183.94492888450623,
+    "throughput_events_per_sec": 815.6680421138686,
+    "total_batches": 13,
+    "avg_batch_size": 11541.384615384615,
+    "avg_batch_time": 0.9225365015176626
+}

@@ -1,0 +1,8 @@
+{
+    "engine": "Apache Flink",
+    "total_events": 85074,
+    "total_time_seconds": 180.1330394744873,
+    "throughput_events_per_sec": 472.2842641649271,
+    "avg_latency_ms": 3598959.04972257,
+    "total_revenue": 1681097.170999804
+}
