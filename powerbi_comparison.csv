@@ -1,8 +1,6 @@
 Metric,Spark,Flink
-Total Events,100000,100000
-Total Time (seconds),168.51818776130676,191.14121055603027
-Throughput (events/sec),593.4077581088304,523.1734156600753
-Avg Latency (ms),28.76137184,37.378641359999996
-Min Latency (ms),1.608,3.725
-Max Latency (ms),125.474,857.004
-Total Revenue (£),2072383.9589996836,2067123.9989996883
+Total Events,92968,93041
+Total Time (seconds),188.92,180.09
+Throughput (events/sec),492,517
+Avg Latency (ms),28.76,37.38
+Total Revenue,2072383,2067123

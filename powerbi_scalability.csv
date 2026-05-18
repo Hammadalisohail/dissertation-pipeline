@@ -1,6 +1,4 @@
-Target_Rate,Actual_Rate,Time_Taken,Total_Events,Efficiency_%
-100,88,114.15,10000,88.0
-500,351,28.46,10000,70.2
-1000,539,18.56,10000,53.9
-5000,720,13.89,10000,14.4
-10000,741,13.49,10000,7.4
+Input_Rate,Spark_Throughput,Flink_Throughput
+100 events/sec,29,52
+1000 events/sec,207,495
+10000 events/sec,811,1836

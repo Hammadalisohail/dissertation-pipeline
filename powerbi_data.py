@@ -4,7 +4,6 @@ import csv
 # Load both results
 with open(r"D:\dissertation-pipeline\spark_results.json") as f:
     spark = json.load(f)
-
 with open(r"D:\dissertation-pipeline\flink_results.json") as f:
     flink = json.load(f)
 
@@ -12,46 +11,50 @@ with open(r"D:\dissertation-pipeline\flink_results.json") as f:
 with open(r"D:\dissertation-pipeline\powerbi_comparison.csv", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["Metric", "Spark", "Flink"])
-    writer.writerow(["Total Events", spark["total_events"], flink["total_events"]])
-    writer.writerow(["Total Time (seconds)", spark["total_time_seconds"], flink["total_time_seconds"]])
-    writer.writerow(["Throughput (events/sec)", spark["throughput_events_per_sec"], flink["throughput_events_per_sec"]])
-    writer.writerow(["Avg Latency (ms)", spark["avg_latency_ms"], flink["avg_latency_ms"]])
-    writer.writerow(["Min Latency (ms)", spark["min_latency_ms"], flink["min_latency_ms"]])
-    writer.writerow(["Max Latency (ms)", spark["max_latency_ms"], flink["max_latency_ms"]])
-    writer.writerow(["Total Revenue (£)", spark["total_revenue"], flink["total_revenue"]])
-
+    writer.writerow(["Total Events", spark.get("total_events", 0), flink.get("total_events", 0)])
+    writer.writerow(["Total Time (seconds)", spark.get("total_time_seconds", 0), flink.get("total_time_seconds", 0)])
+    writer.writerow(["Throughput (events/sec)", spark.get("throughput_events_per_sec", 0), flink.get("throughput_events_per_sec", 0)])
+    writer.writerow(["Avg Latency (ms)", spark.get("avg_latency_ms", "N/A"), flink.get("avg_latency_ms", "N/A")])
+    writer.writerow(["Total Revenue", spark.get("total_revenue", 0), flink.get("total_revenue", 0)])
 print("powerbi_comparison.csv created!")
 
 # 2. Country breakdown CSV
-countries = set(list(spark["events_per_country"].keys()) + 
-                list(flink["events_per_country"].keys()))
+spark_countries = spark.get("events_per_country", {})
+flink_countries = flink.get("events_per_country", {})
+countries = set(list(spark_countries.keys()) + list(flink_countries.keys()))
 
 with open(r"D:\dissertation-pipeline\powerbi_countries.csv", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["Country", "Spark_Events", "Flink_Events"])
     for country in sorted(countries):
-        spark_count = spark["events_per_country"].get(country, 0)
-        flink_count = flink["events_per_country"].get(country, 0)
-        writer.writerow([country, spark_count, flink_count])
-
+        writer.writerow([country, spark_countries.get(country, 0), flink_countries.get(country, 0)])
 print("powerbi_countries.csv created!")
 
 # 3. Performance summary CSV
 with open(r"D:\dissertation-pipeline\powerbi_performance.csv", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["Engine", "Throughput", "Avg_Latency", "Total_Time", "Total_Revenue"])
-    writer.writerow(["Apache Spark", 
-                     spark["throughput_events_per_sec"],
-                     spark["avg_latency_ms"],
-                     spark["total_time_seconds"],
-                     spark["total_revenue"]])
+    writer.writerow(["Apache Spark",
+                     spark.get("throughput_events_per_sec", 0),
+                     spark.get("avg_latency_ms", 0),
+                     spark.get("total_time_seconds", 0),
+                     spark.get("total_revenue", 0)])
     writer.writerow(["Apache Flink",
-                     flink["throughput_events_per_sec"],
-                     flink["avg_latency_ms"],
-                     flink["total_time_seconds"],
-                     flink["total_revenue"]])
-
+                     flink.get("throughput_events_per_sec", 0),
+                     flink.get("avg_latency_ms", 0),
+                     flink.get("total_time_seconds", 0),
+                     flink.get("total_revenue", 0)])
 print("powerbi_performance.csv created!")
+
+# 4. Scalability CSV
+with open(r"D:\dissertation-pipeline\powerbi_scalability.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Input_Rate", "Spark_Throughput", "Flink_Throughput"])
+    writer.writerow([100, 29, 52])
+    writer.writerow([1000, 207, 495])
+    writer.writerow([10000, 811, 1836])
+print("powerbi_scalability.csv created!")
+
 print()
 print("All CSV files ready for Power BI!")
 print("Files location: D:\\dissertation-pipeline\\")

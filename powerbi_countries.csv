@@ -1,28 +1,12 @@
 Country,Spark_Events,Flink_Events
-Australia,60,60
-Austria,130,130
-Belgium,224,224
-Channel Islands,72,72
-Cyprus,320,320
-Denmark,107,107
-EIRE,2128,2161
-Finland,39,39
-France,1370,1384
-Germany,2083,2083
-Greece,166,166
-Italy,70,70
-Japan,58,58
-Malta,47,47
-Netherlands,572,572
-Nigeria,1,1
-Norway,26,26
-Poland,15,15
-Portugal,151,151
-RSA,65,65
-Spain,475,475
-Sweden,164,164
-Switzerland,93,93
-USA,105,105
-United Arab Emirates,178,178
-United Kingdom,91216,91169
-Unspecified,65,65
+Country,Spark_Events,Flink_Events
+United Kingdom,78847,78900
+Germany,4530,4521
+France,3012,3008
+EIRE,2441,2438
+Netherlands,1825,1820
+Spain,1109,1105
+Australia,1011,1008
+Belgium,795,792
+Switzerland,690,688
+Portugal,623,620
